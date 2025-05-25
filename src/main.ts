@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
+import VueApexCharts from 'vue3-apexcharts';
+
 
 import { IonicVue } from '@ionic/vue';
 
@@ -41,3 +43,5 @@ const app = createApp(App)
 router.isReady().then(() => {
   app.mount('#app');
 });
+app.use(VueApexCharts);
+
