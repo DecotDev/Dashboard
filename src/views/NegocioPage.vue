@@ -23,7 +23,7 @@
         <ion-row class="ion-row-1">
           <ion-col size="6" size-lg="3">
             <div class="box">
-              <CustomChart :data="[22, 40, 35, 60, 58, 71, 65]" title="📥 Descargas Mensuales" color="#0ea5e9" />
+              <CustomChart :data="[0, 40000, 35000, 60000, 58000, 71000, 65000, 70000 ]" title="Descargas semanales" color="#0ea5e9" />
             </div>
           </ion-col>
           <ion-col size="6" size-lg="3">
@@ -31,16 +31,17 @@
               <EchartsGaugeMultiple :segments="echartMultiple" />
             </div>
           </ion-col>
-<ion-col size="6" size-lg="3">
-  <div class="box">
-    <ApexBarRT :series="apexSeries" title="Rendimiento Actual" color="#f59e0b" :kpi-target="75" />
-  </div>
-</ion-col>
+          <ion-col size="6" size-lg="3">
+            <div class="box">
+              <ApexBarGrouped :series="groupedSeries" :categories="['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom']"
+                title="Comparativa Semanal" />
+            </div>
+          </ion-col>
 
           <ion-col size="6" size-lg="3">
             <div class="box">
               <EchartsStackedArea :categories="areaCategories" :series-data="areaSeries"
-                title="Actividades Semanales" />
+                title="Acceso APP" />
             </div>
           </ion-col>
         </ion-row>
@@ -81,7 +82,7 @@ import EchartsGauge from '@/components/EchartsGauge.vue';
 import EchartsGaugeMultiple from '@/components/EchartsGaugeMultiple.vue';
 import EchartsStackedArea from '@/components/EchartsStackedArea.vue';
 import ApexBarRT from '@/components/ApexBarRT.vue';
-
+import ApexBarGrouped from '@/components/ApexBarGrouped.vue';
 
 
 // Custom components
@@ -97,10 +98,17 @@ const customChartData2 = ref([10, 30, 20, 40, 35, 50, 45, 38]);
 // Stack data
 const areaCategories = ref(['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom']);
 const areaSeries = ref([
-  { name: 'Marketing', data: [120, 132, 101, 134, 90, 230, 210] },
-  { name: 'Ventas', data: [220, 182, 191, 234, 290, 330, 310] },
-  { name: 'Soporte', data: [150, 232, 201, 154, 190, 330, 410] }
+  { name: 'IOs', data: [315, 341, 351, 311, 298, 427, 387] },
+  { name: 'Android', data:   [2613, 2010, 1932, 2141, 2340, 2815, 3115] },
+  { name: 'Web', data: [1202, 1315, 1241, 1540, 1231, 2300, 2214] }
 ]);
+
+// Bars data
+const groupedSeries = ref([
+  { name: 'Ventas', data: [34, 44, 54, 21, 12, 43, 33] },
+  { name: 'Marketing', data: [22, 29, 41, 25, 13, 34, 27] }
+]);
+
 
 // ApexCharts realtime data
 const apexSeries = ref([{ name: 'RT Data', data: [] as { x: number; y: number }[] }]);
@@ -108,8 +116,8 @@ const apexSeries = ref([{ name: 'RT Data', data: [] as { x: number; y: number }[
 // ECharts realtime values
 const echartValue = ref(50);
 const echartMultiple = ref([
-  { value: 40, name: 'Segmento A', color: '#10b981', min: 30, max: 70 },
-  { value: 60, name: 'Segmento B', color: '#3b82f6', min: 40, max: 90 }
+  { value: 40, name: 'Juego', color: '#10b981', min: 48, max: 54 },
+  { value: 60, name: 'App', color: '#3b82f6', min: 13, max: 18 }
 ]);
 
 let lastDate = Date.now();

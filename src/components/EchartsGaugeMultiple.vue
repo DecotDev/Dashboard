@@ -36,12 +36,12 @@
   // Configuración del gráfico
   const chartOptions = computed(() => ({
     title: {
-      text: 'Procedencia',
+      text: 'Actividad usuarios',
       padding: 20,
       textStyle:{
         color: '#8C8C8C',
         fontWeight: 'bolder',
-        fontSize: 16,
+        fontSize: 20,
       },
     },
     series: [{
