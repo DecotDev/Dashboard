@@ -23,7 +23,7 @@
         <ion-row class="ion-row-1">
           <ion-col size="6" size-lg="3">
             <div class="box">
-              <CustomChart :data="[0, 40000, 35000, 60000, 58000, 71000, 65000, 70000 ]" title="Descargas mensuales" color="#0ea5e9" />
+              <CustomChart :data="[0, 40000, 35000, 42000, 58000, 68000, 62000, 70000 ]" title="Descargas mensuales" color="#0ea5e9" />
             </div>
           </ion-col>
           <ion-col size="6" size-lg="3">
@@ -105,8 +105,8 @@ const areaSeries = ref([
 
 // Bars data
 const groupedSeries = ref([
-  { name: 'Ventas', data: [34, 44, 54, 21, 12, 43, 33] },
-  { name: 'Marketing', data: [22, 29, 41, 25, 13, 34, 27] }
+  { name: 'Steam', data: [22, 20, 23, 25, 22, 28, 27] },
+  { name: 'App', data: [30, 34, 34, 31, 32, 41, 43] } 
 ]);
 
 

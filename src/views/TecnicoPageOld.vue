@@ -17,7 +17,62 @@
       </ion-header>
 
       <ion-grid class="dashboard-grid">
-        <ion-row class="ion-row-expanded">
+        <!-- System Status Row -->
+        <ion-row class="ion-row-1">
+          <ion-col size="12" size-md="4">
+            <div class="box">
+              <div class="system-status">
+                <h3>Estado del Sistema</h3>
+                <div class="status-item">
+                  <span class="status-label">Versión de la App:</span>
+                  <span class="status-value">2.4.1</span>
+                </div>
+                <div class="status-item">
+                  <span class="status-label">Tiempo de Actividad:</span>
+                  <span class="status-value">12d 4h 32m</span>
+                </div>
+                <div class="status-item">
+                  <span class="status-label">Última Actualización:</span>
+                  <span class="status-value">2023-11-15</span>
+                </div>
+                <div class="status-item">
+                  <span class="status-label">Estado API:</span>
+                  <span class="status-value online">Operacional</span>
+                </div>
+              </div>
+            </div>
+          </ion-col>
+          <ion-col size="12" size-md="4">
+            <div class="box">
+              <div class="performance-metrics">
+                <h3>Métricas de Rendimiento</h3>
+                <div class="metric-item">
+                  <span class="metric-label">Tiempo de Carga:</span>
+                  <span class="metric-value">1.2s</span>
+                  <ion-progress-bar :value="0.85" color="success"></ion-progress-bar>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-label">Uso de Memoria:</span>
+                  <span class="metric-value">145MB/256MB</span>
+                  <ion-progress-bar :value="0.57" color="warning"></ion-progress-bar>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-label">Tasa de FPS:</span>
+                  <span class="metric-value">58/60</span>
+                  <ion-progress-bar :value="0.97" color="success"></ion-progress-bar>
+                </div>
+              </div>
+            </div>
+          </ion-col>
+          <ion-col size="12" size-md="4">
+            <div class="box">
+              <EchartsGaugeMultiple :data="gaugeData" title="Estado del Hardware" />
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <!-- Fila 2: Chart.js Realtime -->
+        <ion-row class="ion-row-2">
           <ion-col size="12" size-md="3" push-md="9">
             <div class="box">
               <EchartsStackedArea :categories="stackedCategories" :series-data="stackedSeries" title="Actividad Técnica" />
@@ -44,15 +99,44 @@
           </ion-col>
         </ion-row>
 
-        <ion-row class="ion-row-expanded">
+        <!-- Fila 3: Additional ECharts -->
+        <ion-row class="ion-row-3">
           <ion-col size="12" size-lg="4.5">
             <div class="box">
               <CustomChart :data="[70, 85, 95, 80, 60, 40, 30]" title="Especificaciones Técnicas" color="#f59e0b" />
+              <div class="tech-specs">
+                <div class="spec-item">
+                  <span class="spec-label">Tamaño de la App:</span>
+                  <span class="spec-value">24.7MB</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Soporte de SO:</span>
+                  <span class="spec-value">Android 10+, iOS 14+</span>
+                </div>
+                <div class="spec-item">
+                  <span class="spec-label">Librerías:</span>
+                  <span class="spec-value">Ionic 7, Vue 3, Capacitor 5</span>
+                </div>
+              </div>
             </div>
           </ion-col>
           <ion-col size="12" size-lg="4.5">
             <div class="box">
-              <ApexBarRT :series="barRTSeries" title="Actualizaciones de marcadores" color="#ef4444" :kpi-target="90" />
+              <ApexBarRT :series="barRTSeries" title="Carga Actual" color="#ef4444" :kpi-target="90" />
+              <div class="load-details">
+                <div class="load-item">
+                  <span class="load-label">Usuarios Activos:</span>
+                  <span class="load-value">1,243</span>
+                </div>
+                <div class="load-item">
+                  <span class="load-label">Máx. Concurrentes:</span>
+                  <span class="load-value">2,850</span>
+                </div>
+                <div class="load-item">
+                  <span class="load-label">Ancho de Banda:</span>
+                  <span class="load-value">45Mbps</span>
+                </div>
+              </div>
             </div>
           </ion-col>
           <ion-col size="12" size-lg="3">
@@ -87,6 +171,7 @@ import {
   IonTitle, IonToolbar, IonGrid, IonRow, IonCol, IonProgressBar
 } from '@ionic/vue';
 
+// Components
 import ApexLineRT from '@/components/ApexLineRT.vue';
 import ApexBarGrouped from '@/components/ApexBarGrouped.vue';
 import ApexBarRT from '@/components/ApexBarRT.vue';
@@ -96,6 +181,7 @@ import EchartsStackedArea from '@/components/EchartsStackedArea.vue';
 import ChartJSLineAreaRT from '@/components/ChartJSLineAreaRT.vue';
 import CustomChart from '@/components/CustomChart.vue';
 
+// Data
 const lineSeries = ref([{ name: 'Sensor', data: [10, 22, 34, 40, 32, 50] }]);
 const barSeries = ref([
   { name: 'Voltaje', data: [220, 240, 210, 250, 260, 245] },
@@ -118,6 +204,7 @@ const stackedSeries = ref([
   { name: 'Test 3', data: [60, 110, 130, 90, 80] }
 ]);
 
+// Generate random real-time data
 setInterval(() => {
   const newData = barRTSeries.value[0].data;
   if (newData.length > 10) newData.shift();
@@ -152,9 +239,39 @@ ion-col {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.realtime-stats, .efficiency-stats {
+.system-status, .performance-metrics, .tech-specs, .load-details, .efficiency-stats {
   width: 100%;
-  margin-top: 1rem;
+}
+
+.status-item, .metric-item, .spec-item, .load-item, .efficiency-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #333;
+}
+
+.status-label, .metric-label, .spec-label, .load-label, .efficiency-label {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.status-value, .metric-value, .spec-value, .load-value, .efficiency-value {
+  font-weight: 500;
+}
+
+.online {
+  color: #10b981;
+}
+
+.offline {
+  color: #ef4444;
+}
+
+.realtime-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 16px;
 }
 
 .stat-card {
@@ -176,30 +293,27 @@ ion-col {
   color: #aaa;
 }
 
-.efficiency-item {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 12px;
-  padding: 8px 0;
-  border-bottom: 1px solid #333;
-}
-
-.efficiency-label {
-  color: #aaa;
-  font-size: 0.9rem;
-}
-
-.efficiency-value {
-  font-weight: 500;
+ion-progress-bar {
+  margin-top: 4px;
+  height: 6px;
+  border-radius: 3px;
 }
 
 @media (min-width: 992px) {
   ion-grid {
     height: 100%;
   }
-  .ion-row-expanded {
-    height: 50%;
-    max-height: 50%;
+  .ion-row-1 {
+    height: 20%;
+    max-height: 20%;
+  }
+  .ion-row-2 {
+    height: 40%;
+    max-height: 40%;
+  }
+  .ion-row-3 {
+    height: 40%;
+    max-height: 40%;
   }
 }
 
