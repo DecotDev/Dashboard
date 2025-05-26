@@ -32,8 +32,8 @@
           type: 'gauge',
           center: ['50%', '55%'],
           radius: '95%',
-          min: 0,
-          max: 100,
+          min: 100,
+          max: 0,
           axisLine: {
             lineStyle: {
               width: 20,

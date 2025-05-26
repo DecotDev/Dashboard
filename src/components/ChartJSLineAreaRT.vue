@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<{
   max?: number;
 }>(), {
   chartType: 'line',
-  title: 'Carga del servidor',
+  title: 'Usuarios conectados',
   color: '#10b981',
   min: 2000,
   max: 2400,
@@ -100,7 +100,7 @@ onMounted(() => {
           },
           title: {
             display: false,
-            text: 'Carga (%)',
+            text: 'Usuarios (%)',
             color: '#8C8C8C',
             font: {
               size: 12
@@ -140,7 +140,7 @@ onMounted(() => {
           displayColors: false,
           callbacks: {
             label: function(context) {
-              return `Carga: ${context.parsed.y}`;
+              return `Usuarios: ${context.parsed.y}`;
             }
           }
         }

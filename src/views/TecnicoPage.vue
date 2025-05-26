@@ -20,7 +20,7 @@
         <ion-row class="ion-row-expanded">
           <ion-col size="12" size-md="3" push-md="9">
             <div class="box">
-              <EchartsStackedArea :categories="stackedCategories" :series-data="stackedSeries" title="Actividad Técnica" />
+              <EchartsStackedArea :categories="stackedCategories" :series-data="stackedSeries" title="Compatibilidad versiones con plataformas" />
             </div>
           </ion-col>
           <ion-col size="12" size-md="9" pull-md="3">
@@ -28,15 +28,15 @@
               <ChartJSLineAreaRT chartType="area" title="Monitor en Tiempo Real" color="#10b981" :min="2000" :max="2400" />
               <div class="realtime-stats">
                 <div class="stat-card">
-                  <div class="stat-value">2,340</div>
-                  <div class="stat-label">Peticiones/min</div>
+                  <div class="stat-value">62</div>
+                  <div class="stat-label">Peticiones por usuario / min</div>
                 </div>
                 <div class="stat-card">
-                  <div class="stat-value">98.7%</div>
+                  <div class="stat-value">95.7%</div>
                   <div class="stat-label">Tasa de éxito</div>
                 </div>
                 <div class="stat-card">
-                  <div class="stat-value">42ms</div>
+                  <div class="stat-value">85ms</div>
                   <div class="stat-label">Latencia promedio</div>
                 </div>
               </div>
@@ -47,7 +47,7 @@
         <ion-row class="ion-row-expanded">
           <ion-col size="12" size-lg="4.5">
             <div class="box">
-              <CustomChart :data="[70, 85, 95, 80, 60, 40, 30]" title="Especificaciones Técnicas" color="#f59e0b" />
+              <CustomChart :data="[27, 32, 29, 33, 28, 58, 53]" title="Errores reportados / dia" color="#f59e0b" />
             </div>
           </ion-col>
           <ion-col size="12" size-lg="4.5">
@@ -57,19 +57,11 @@
           </ion-col>
           <ion-col size="12" size-lg="3">
             <div class="box">
-              <EchartsGauge :value="75" :min="50" :max="100" title="Eficiencia del Sistema" />
+              <EchartsGauge :value="91" :min="50" :max="100" title="MAX % CPU servidor" />
               <div class="efficiency-stats">
                 <div class="efficiency-item">
-                  <span class="efficiency-label">Cache Hit Rate:</span>
-                  <span class="efficiency-value">89%</span>
-                </div>
-                <div class="efficiency-item">
-                  <span class="efficiency-label">DB Queries:</span>
-                  <span class="efficiency-value">120/s</span>
-                </div>
-                <div class="efficiency-item">
-                  <span class="efficiency-label">Compresión:</span>
-                  <span class="efficiency-value">72%</span>
+                  <span class="efficiency-label">CPU Servidor KPI:</span>
+                  <span class="efficiency-value"><60%</span>
                 </div>
               </div>
             </div>
@@ -111,11 +103,11 @@ const gaugeData = ref([
   { value: 92, name: 'Red', color: '#8b5cf6', min: 70, max: 100 }
 ]);
 
-const stackedCategories = ref(['Mod1', 'Mod2', 'Mod3', 'Mod4', 'Mod5']);
+const stackedCategories = ref([' v1.3', 'v1.4', 'v1.5', 'v2.0', 'v2.1']);
 const stackedSeries = ref([
-  { name: 'Test 1', data: [120, 200, 150, 80, 70] },
-  { name: 'Test 2', data: [90, 130, 170, 110, 95] },
-  { name: 'Test 3', data: [60, 110, 130, 90, 80] }
+  { name: 'IOs', data: [97, 100, 100, 99, 99] },
+  { name: 'Android', data: [98, 99, 97, 82, 95] },
+  { name: 'Web', data: [99, 100, 94, 96, 99] }
 ]);
 
 setInterval(() => {

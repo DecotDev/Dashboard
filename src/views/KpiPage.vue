@@ -143,37 +143,37 @@
     {
       id: 1,
       title: "Optimizar rendimiento en tiempo real",
-      description: "Reducir la latencia y aumentar la tasa de éxito para mejorar la experiencia del usuario en operaciones críticas",
+      description: "Reducir la latencia y aumentar la tasa de éxito para mejorar la experiencia del usuario en operaciones críticas a base de implementar mejoras en la optimización de las llamadas API y mejorar el uso de caché buscando una mejora en estos parámetros hace que la respuesta del sistema sea más ágil y confiable, lograrlo en un plazo de 2 meses",
       smart: [
         { letter: "S", content: "Reducir la latencia promedio y aumentar la tasa de éxito de las peticiones" },
-        { letter: "M", content: "Latencia promedio de 42 ms a 30 ms y elevar tasa de éxito (98.7% a 99.5%)" },
+        { letter: "M", content: "Latencia promedio de 85 ms a <50 ms y elevar tasa de éxito (95.7% a >99%)" },
         { letter: "A", content: "Implementar mejoras en la optimización de las llamadas API y mejorar el uso de caché" },
         { letter: "R", content: "Una mejora en estos parámetros hace que la respuesta del sistema sea más ágil y confiable" },
-        { letter: "T", content: "Lograrlo en un plazo de 60 días." }
+        { letter: "T", content: "Lograrlo en un plazo de 2 meses." }
       ]
     },
     {
       id: 2,
-      title: "Aumentar usuarios jugando y usando la app a la vez",
-      description: "Aumentar hasta llegar a un total de 20% los usuarios activos usando la app, gracias a añadir funciones conectadas entre la app y el juego aumentando la utilidad",
+      title: "Aumentar compatibilidad de la app",
+      description: "Aumentar el porcentaje de compatibilidad de las versiones de la app con cada plataforma a un 99% o mas por cada version solucionando los errores de compatibilidad de cada platforma i conseguir una mejor experiencia y asegurar la accesibilidad a todos los usuarios, en la proxima version (1 mes aproximadamente)",
       smart: [
-        { letter: "S", content: "Llegar al 20% de usuarios activos en la app" },
-        { letter: "M", content: "20% (300 a 450)" },
-        { letter: "A", content: "Añadiendo acciones utiles en la app con una utilidad en el juego" },
-        { letter: "R", content: "Aumentar la cohexistencia de la app con le juego" },
-        { letter: "T", content: "En 2 meses" }
+        { letter: "S", content: "Aumentar el porcentaje de compatibilidad de las versiones de la app con cada plataforma" },
+        { letter: "M", content: "de <99% a 99% o >99%" },
+        { letter: "A", content: "Solucionando los errores de compatibilidad de cada platforma" },
+        { letter: "R", content: "Conseguir una mejor experiencia y asegurar la accesibilidad a todos los usuarios" },
+        { letter: "T", content: "En la proxima version (1 mes aproximadamente)" }
       ]
     },
     {
       id: 3,
-      title: "Lograr mas ventas des de la app",
-      description: "Lograr mas ventas des de la app en un 25% regalando pack exclusivos por la compra des de la app para atraer mas beneficios al comprador mediante este metodo, en 3 semanas",
+      title: "Reducir los errores reportados ",
+      description: "Reducir los errores reportados cada dia un 50%, eyendo los reportes y poniendo solución Para obtener una mejore experiencia ins errores que reportar en 1 o 2 meses",
       smart: [
-        { letter: "S", content: "Subir las ventas desde la app un 25%" },
-        { letter: "M", content: "25% (35 a 42 diarias)" },
-        { letter: "A", content: "Regalando pack exclusivos por la compra des de la app" },
-        { letter: "R", content: "Para atraer mas beneficios al comprador des de la app" },
-        { letter: "T", content: "En 3 semanas" }
+        { letter: "S", content: "Reducir los errores reportados cada dia" },
+        { letter: "M", content: "-50% (42 a 21 errores)" },
+        { letter: "A", content: "Leyendo los reportes y poniendo solución" },
+        { letter: "R", content: "Para obtener una mejore experiencia ins errores que reportar" },
+        { letter: "T", content: "En 1 o 2 meses" }
       ]
     },
     {
@@ -190,14 +190,14 @@
     },
     {
       id: 5,
-      title: "Accesos app",
-      description: "Subir los accesosde la app hasta 6.000 en un día en las proximas 6 semanas atrayendo a mas usuarios y mantener-los usando la app con eventos diarios o semanales dentro de la app.",
+      title: "Uso CPU servidor",
+      description: "Reducir el porcentaje de uso de la CPU del servidor a un 60% o menos optimizando las respuestas y servicios que tiene el servidor o aumentar sus carecteristicas para evitar un colapso del servidor, empezar ya y lograr en los proximos 3 meses.",
       smart: [
-        { letter: "S", content: "Aumentar accesos darios a la app" },
-        { letter: "M", content: "De 4.800/dia a > 6.000/dia" },
-        { letter: "A", content: "Con eventos diarios o semanales dentro de la app" },
-        { letter: "R", content: "Mantener a los usuarios usando la app por mas tiempo" },
-        { letter: "T", content: "En las proximas 6 semanas" }
+        { letter: "S", content: "Reducir el porcentaje de uso de la CPU del servidor a un 60% o menos" },
+        { letter: "M", content: "De 91% a <60%" },
+        { letter: "A", content: "Optimizando las respuestas y servicios que tiene el servidor o aumentar sus carecteristicas" },
+        { letter: "R", content: "Para evitar un colapso del servidor" },
+        { letter: "T", content: "Empezar ya y lograr en los proximos 3 meses" }
       ]
     }
   ]);
