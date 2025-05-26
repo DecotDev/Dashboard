@@ -23,7 +23,7 @@
         <ion-row class="ion-row-1">
           <ion-col size="6" size-lg="3">
             <div class="box">
-              <CustomChart :data="[0, 40000, 35000, 60000, 58000, 71000, 65000, 70000 ]" title="Descargas semanales" color="#0ea5e9" />
+              <CustomChart :data="[0, 40000, 35000, 60000, 58000, 71000, 65000, 70000 ]" title="Descargas mensuales" color="#0ea5e9" />
             </div>
           </ion-col>
           <ion-col size="6" size-lg="3">
@@ -34,7 +34,7 @@
           <ion-col size="6" size-lg="3">
             <div class="box">
               <ApexBarGrouped :series="groupedSeries" :categories="['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom']"
-                title="Comparativa Semanal" />
+                title="Ventas Heaen's Hell" />
             </div>
           </ion-col>
 

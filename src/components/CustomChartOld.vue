@@ -6,7 +6,7 @@
     </div>
 
     <div class="chart-wrapper">
-      <svg :viewBox="`0 -10 ${width} ${height + 20}`" preserveAspectRatio="xMinYMid meet">
+      <svg :viewBox="`0 0 ${width} ${height}`" preserveAspectRatio="xMinYMid meet">
         <!-- Gradient fill -->
         <defs>
           <linearGradient :id="gradientId" x1="0" y1="0" x2="0" y2="1">
@@ -20,19 +20,6 @@
 
         <!-- Line -->
         <polyline :points="points" :stroke="color" fill="none" stroke-width="2.5" class="line" />
-
-        <!-- Y-axis labels -->
-        <g class="y-labels">
-          <text
-            v-for="(label, i) in yLabels"
-            :key="i"
-            :x="0"
-            :y="(i * (height / (yLabels.length - 1)))"
-            class="y-text"
-          >
-            {{ label }}
-          </text>
-        </g>
 
         <!-- Dots -->
         <circle
@@ -72,15 +59,15 @@ const props = withDefaults(
 
 const gradientId = `gradient-${Math.random().toString(36).substring(2, 8)}`;
 
-const max = computed(() => Math.max(...props.data));
-const min = computed(() => Math.min(...props.data));
-const range = computed(() => max.value - min.value || 1);
-
 const pointArray = computed(() => {
+  const max = Math.max(...props.data);
+  const min = Math.min(...props.data);
+  const range = max - min || 1;
   const step = props.width / (props.data.length - 1);
+
   return props.data.map((val, i) => {
     const x = i * step;
-    const y = props.height - ((val - min.value) / range.value) * props.height;
+    const y = props.height - ((val - min) / range) * props.height;
     return { x, y };
   });
 });
@@ -92,16 +79,6 @@ const points = computed(() =>
 const filledPoints = computed(() => {
   const base = points.value;
   return `${base} ${props.width},${props.height} 0,${props.height}`;
-});
-
-const yLabels = computed(() => {
-  const labels = [];
-  const steps = 5;
-  for (let i = 0; i < steps; i++) {
-    const val = max.value - ((range.value / (steps - 1)) * i);
-    labels.push(Math.round(val));
-  }
-  return labels;
 });
 </script>
 
@@ -142,20 +119,12 @@ const yLabels = computed(() => {
   flex-grow: 1;
   display: flex;
   align-items: center;
-  position: relative;
 }
 
 svg {
   width: 100%;
   height: auto;
   max-height: 100%;
-  overflow: visible;
-}
-
-.y-labels text {
-  font-size: 0.7rem;
-  fill: #94a3b8;
-  alignment-baseline: middle;
 }
 
 .fill {
@@ -170,7 +139,6 @@ svg {
 
 .dot {
   transition: transform 0.2s;
-  cursor: pointer;
 }
 .dot:hover {
   transform: scale(1.3);
