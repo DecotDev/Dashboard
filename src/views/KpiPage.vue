@@ -108,7 +108,7 @@
       description: "Lograr mas ventas des de la app en un 25% regalando pack exclusivos por la compra des de la app para atraer mas beneficios al comprador mediante este metodo, en 3 semanas",
       smart: [
         { letter: "S", content: "Subir las ventas desde la app un 25%" },
-        { letter: "M", content: "25% (35 a 42 diarias)" },
+        { letter: "M", content: "25% (400 a 500 mensuales)" },
         { letter: "A", content: "Regalando pack exclusivos por la compra des de la app" },
         { letter: "R", content: "Para atraer mas beneficios al comprador des de la app" },
         { letter: "T", content: "En 3 semanas" }

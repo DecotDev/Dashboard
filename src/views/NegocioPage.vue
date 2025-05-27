@@ -33,7 +33,7 @@
           </ion-col>
           <ion-col size="6" size-lg="3">
             <div class="box">
-              <ApexBarGrouped :series="groupedSeries" :categories="['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom']"
+              <ApexBarGrouped :series="groupedSeries" :categories="['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']"
                 title="Ventas Heaen's Hell" />
             </div>
           </ion-col>
@@ -105,8 +105,8 @@ const areaSeries = ref([
 
 // Bars data
 const groupedSeries = ref([
-  { name: 'Steam', data: [22, 20, 23, 25, 22, 28, 27] },
-  { name: 'App', data: [30, 34, 34, 31, 32, 41, 43] } 
+  { name: 'Steam', data: [280, 231, 193, 259, 262, 280, 270] },
+  { name: 'App', data: [0, 143, 344, 310, 387, 402, 430] } 
 ]);
 
 
